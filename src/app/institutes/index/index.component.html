@@ -6,11 +6,31 @@
     <thead class="thead-dark">
       <tr>
         <th>ID</th>
-        <th>First name</th>
-        <th>Last name</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Telefono</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
+      <tr *ngFor="let i of institutes">
+        <td>
+          {{i.id}}
+        </td>
+        <td>
+          {{i.name}}
+        </td>
+        <td>
+          {{i.email}}
+        </td>
+        <td>
+          {{i.phone}}
+        </td>
+        <td>
+          <button id="edit" type="button" class="btn btn-primary">Editar</button>
+          <button type="button" class="btn btn-secondary">Eliminar</button>
+        </td>
+      </tr>
      <!--  <tr *ngFor="let person of persons">
         <td></td>
         <td></td>

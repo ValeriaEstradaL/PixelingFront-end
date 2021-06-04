@@ -1,14 +1,15 @@
 <div class="content ">
   <legend class="legend">Crear mascota</legend>
-  <form>
+  <form [formGroup]="form" (ngSubmit)="createPet()">
     <div class="row justify-content-center">
     <div class="col-md-6">
-      <input type="text" name="nombre" id="" placeholder="Nombre de la mascota" class="form-control">
+      <input type="text" formControlName="name" name="nombre" id="" minlength="3" maxlength="100" placeholder="Nombre de la mascota" class="form-control" required>
     </div>
 
 
     <div class="col-md-6">
-      <select class="browser-default custom-select">
+      <label for="">Elegir especie</label>
+      <select class="browser-default custom-select" formControlName="specie" required>
         <option selected>Elegir especie</option>
         <option value="1">Gato</option>
         <option value="2">Perro</option>
@@ -16,7 +17,8 @@
       </select>
     </div>
     <div class="col-md-6">
-      <select class="browser-default custom-select">
+      <label for="">Elegir raza</label>
+      <select class="browser-default custom-select" formControlName="breed" required>
         <option selected>Elija la raza</option>
         <option value="1">Gato</option>
         <option value="2">Perro</option>
@@ -25,22 +27,26 @@
     </div>
     <div class="col-md-6">
       <label for="">Fecha nacimiento </label>
-      <input type="date" name="nombre" id="" class="form-control">
+      <input type="date" formControlName="birth" name="nombre" id="" class="form-control" required>
     </div>
     <div class="col-md-6">
-      <label for="" style="margin: 0.5rem;">Subir imagen</label>
+      <label for="" style="margin: 0.5rem;" >Subir imagen</label>
 
-      <input type="file" placeholder="subir imagen">
+      <input type="file" formControlName="image"  max-size="1000" placeholder="subir imagen">
       <!--  <label class="custom-file-label" >Subir imagen</label> -->
     </div>
     <div class="col-md-6">
-      <select class="browser-default custom-select">
+      <label for="">Elegir institución</label>
+      <select class="browser-default custom-select" formControlName="institute">
         <option selected>Elija la institución</option>
         <option value="1">Gato</option>
         <option value="2">Perro</option>
 
       </select>
     </div>
+    <div class="col-md-6">
+    <button class="btn btn-primary"type="submit">Crear mascota</button>
+  </div>
   </div>
 
   </form>

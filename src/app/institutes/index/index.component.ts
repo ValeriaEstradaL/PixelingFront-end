@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InstituteModel } from 'src/app/models/institute.model';
 import { Subject } from 'rxjs';
+import { InstituteServiceService } from 'src/app/services/insitute/institute-service.service';
 
 @Component({
   selector: 'app-index',
@@ -15,13 +16,21 @@ export class IndexComponent implements OnInit {
   // thus we ensure the data is fetched before rendering
   /* dtTrigger: Subject<any> = new Subject<any>(); */
 
-  constructor() { }
+  constructor(private instituteService: InstituteServiceService) { }
+  institutes:any;
+
 
   ngOnInit(): void {
+    this.getInstitute();
    /*  this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 2
     }; */
+  }
+  getInstitute(){
+    this.instituteService.getInstitutes().subscribe(inst=>{
+      this.institutes=inst;
+    },error=> console.error(error));
   }
 
 }

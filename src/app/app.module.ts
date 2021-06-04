@@ -14,7 +14,11 @@ import { ListPetsComponent } from './pets/list-pets/list-pets.component';
 import { HeroComponent } from './template/hero/hero.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from "@angular/material/slider";
+import {ReactiveFormsModule} from '@angular/forms';
 
+import { InstituteServiceService } from './services/insitute/institute-service.service';
+import { PetServicesService } from './services/pet/pet-services.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,14 +38,18 @@ import { MatSliderModule } from "@angular/material/slider";
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
-    MatSliderModule,
+HttpClientModule,
+    ReactiveFormsModule,
 
   ],
   exports:[
 
 
   ],
-  providers: [],
+  providers: [
+    InstituteServiceService,
+    PetServicesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,6 +13,23 @@
           </tr>
         </thead>
         <tbody>
+          <tr *ngFor="let p of pets">
+            <td>
+              {{p.name}}
+            </td>
+            <td>
+              {{p.specie}}
+            </td>
+            <td>
+              {{p.breed}}
+            </td>
+            <td>
+              {{p.birth}}
+            </td>
+            <td>
+              {{p.institute}}
+            </td>
+          </tr>
           <!-- <tr>
             <td>Ratón</td>
             <td>15</td>

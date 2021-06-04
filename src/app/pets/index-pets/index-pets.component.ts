@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PetServicesService } from 'src/app/services/pet/pet-services.service';
 
 @Component({
   selector: 'app-index-pets',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexPetsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private petService: PetServicesService) { }
+  pets:any;
   ngOnInit(): void {
+    this.getPets();
   }
-
+getPets(){
+  this.petService.getPets().subscribe(pt=>{
+    this.pets=pt;
+  },error=>console.error(error));
+}
 }
